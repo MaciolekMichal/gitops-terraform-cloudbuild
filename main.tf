@@ -1,3 +1,5 @@
+// hello world!
+
 provider "google" {
   project = "fun-cloud-build-challenges"
   region = "europe-central2"

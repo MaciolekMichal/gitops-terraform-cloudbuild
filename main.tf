@@ -15,7 +15,7 @@ resource "google_bigquery_dataset" "terraform_dataset" {
 
 terraform {
   backend "gcs" {
-    bucket = "tf-state"
+    bucket = "bucket-for-terraform-states"
     prefix = "env/challenge_1"
   }
 }

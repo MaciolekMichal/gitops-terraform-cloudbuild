@@ -12,3 +12,10 @@ resource "google_bigquery_dataset" "terraform_dataset" {
   dataset_id = "terraform_dataset"
   location = "EU"
 }
+
+terraform {
+  backend "gcs" {
+    bucket = "tf-state"
+    prefix = "env/challenge_1"
+  }
+}

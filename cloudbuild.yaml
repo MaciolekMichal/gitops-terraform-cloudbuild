@@ -2,19 +2,19 @@ steps:
   - id: 'terraform init'
     name: 'hashicorp/terraform:light'
     script: terraform init -backend-config="prefix=env/$BRANCH_NAME"
-    environment:
+    env:
       TF_LOG: DEBUG
     
   - id: 'terraform plan'
     name: 'hashicorp/terraform:light'
     script: terraform plan -var="branch_name=$BRANCH_NAME" -var-file="terraform.tfvars"
-    environment:
+    env:
       TF_LOG: DEBUG
     
   - id: 'terraform apply'
     name: 'hashicorp/terraform:light'
     script: terraform apply -var="branch_name=$BRANCH_NAME" -var-file="terraform.tfvars" --auto-approve
-    environment:
+    env:
       TF_LOG: DEBUG
     
 options:

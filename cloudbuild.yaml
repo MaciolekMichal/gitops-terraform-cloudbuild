@@ -3,19 +3,19 @@ steps:
     name: 'hashicorp/terraform:light'
     script: terraform init -backend-config="prefix=env/$BRANCH_NAME"
     env:
-      TF_LOG: DEBUG
+      - TF_LOG: DEBUG
     
   - id: 'terraform plan'
     name: 'hashicorp/terraform:light'
     script: terraform plan -var="branch_name=$BRANCH_NAME" -var-file="terraform.tfvars"
     env:
-      TF_LOG: DEBUG
+      - TF_LOG: DEBUG
     
   - id: 'terraform apply'
     name: 'hashicorp/terraform:light'
     script: terraform apply -var="branch_name=$BRANCH_NAME" -var-file="terraform.tfvars" --auto-approve
     env:
-      TF_LOG: DEBUG
+      - TF_LOG: DEBUG
     
 options:
   logging: CLOUD_LOGGING_ONLY

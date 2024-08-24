@@ -3,7 +3,7 @@ steps:
     name: 'hashicorp/terraform:light'
     entrypoint: 'sh'
     args:
-      - 'c'
+      - '-c'
       - |
         terraform init -backend-config="prefix=env/add_terraform_variables"
     
@@ -11,7 +11,7 @@ steps:
     name: 'hashicorp/terraform:light'
     entrypoint: 'sh'
     args:
-      - 'c'
+      - '-c'
       - |
         terraform plan -var="branch_name=add_terraform_variables" -var-file="terraform.tfvars"
     
@@ -19,7 +19,7 @@ steps:
     name: 'hashicorp/terraform:light'
     entrypoint: 'sh'
     args:
-      - 'c'
+      - '-c'
       - |
         terraform apply -var="branch_name=add_terraform_variables" -var-file="terraform.tfvars" --auto-approve
 

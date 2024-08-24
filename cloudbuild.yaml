@@ -1,7 +1,12 @@
 steps:
   - id: 'terraform init'
     name: 'hashicorp/terraform:light'
-    script: terraform init
+    entrypoint: '/bin/sh'
+    args:
+      - 'c'
+      - |
+        export TF_VAR_backend_prefix=$BRANCH_NAME
+        terraform init
     
   - id: 'terraform plan'
     name: 'hashicorp/terraform:light'

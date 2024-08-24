@@ -9,7 +9,7 @@ resource "google_storage_bucket" "terraform_bucket" {
 }
 
 resource "google_bigquery_dataset" "terraform_dataset" {
-  dataset_id = "terraform_dataset-${var.branch_name}"
+  dataset_id = "terraform_dataset_${var.branch_name}"
   location = "EU"
 }
 

@@ -1,2 +1,1 @@
-gcs_bucket_location="EU"
-bq_dataset_location="EU"
+project_id="fun-cloud-build-challenges"

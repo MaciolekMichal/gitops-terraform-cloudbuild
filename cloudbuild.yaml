@@ -6,7 +6,7 @@ steps:
       - '-c'
       - |
         echo "********************"
-        echo "ok"
+        echo "$BRANCH_NAME"
         terraform init -backend-config="prefix=env/ok"
     
   - id: 'terraform plan'

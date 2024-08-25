@@ -6,8 +6,8 @@ steps:
       - '-c'
       - |
         echo "********************"
-        echo "OK"
-        terraform init -backend-config="prefix=env/OK"
+        echo "ok"
+        terraform init -backend-config="prefix=env/ok"
     
   - id: 'terraform plan'
     name: 'hashicorp/terraform:light'
@@ -15,7 +15,7 @@ steps:
     args:
       - '-c'
       - |
-        terraform plan -var="branch_name=OK" -var-file="terraform.tfvars"
+        terraform plan -var="branch_name=ok" -var-file="terraform.tfvars"
     
   - id: 'terraform apply'
     name: 'hashicorp/terraform:light'
@@ -23,7 +23,7 @@ steps:
     args:
       - '-c'
       - |
-        terraform apply -var="branch_name=OK" -var-file="terraform.tfvars" --auto-approve
+        terraform apply -var="branch_name=ok" -var-file="terraform.tfvars" --auto-approve
 
 options:
   logging: CLOUD_LOGGING_ONLY

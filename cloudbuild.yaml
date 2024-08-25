@@ -1,15 +1,27 @@
 steps:
   - id: 'terraform init'
     name: 'hashicorp/terraform:light'
-    script: terraform init
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        terraform init -backend-config="prefix=env/$BRANCH_NAME"
     
   - id: 'terraform plan'
     name: 'hashicorp/terraform:light'
-    script: terraform plan
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        terraform plan -var="branch_name=$BRANCH_NAME" -var-file="terraform.tfvars"
     
   - id: 'terraform apply'
     name: 'hashicorp/terraform:light'
-    script: terraform apply --auto-approve
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        terraform apply -var="branch_name=$BRANCH_NAME" -var-file="terraform.tfvars" --auto-approve
 
 options:
   logging: CLOUD_LOGGING_ONLY
